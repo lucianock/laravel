@@ -16,7 +16,7 @@ class MarcaController extends Controller
     public function index() : View
     {
         //obtenemos listado de regiones
-        $marcas = Marca::paginate(6);
+        $marcas = Marca::paginate(4);
         return view('marcas', [ 'marcas'=>$marcas ]);
     }
 
