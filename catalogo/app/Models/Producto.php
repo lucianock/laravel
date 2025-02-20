@@ -15,7 +15,7 @@ class Producto extends Model
     /**
      * Chequear si hay productos relacionados a una marca
      */
-    static function checkProductoPorMarca( string $idMarca ) : int
+    static function checkProductoPorMarca(string $idMarca): int
     {
         //$chech = Producto::where('idMarca', $idMarca)->first();
         //$chech = Producto::firstWhere('idMarca', $idMarca);
@@ -23,24 +23,22 @@ class Producto extends Model
         return $check;
     }
 
-    /*### métodos de relaci´´on  ###*/
-    public function getMarca() : BelongsTo
+    /*### métodos de relacion  ###*/
+    public function getMarca(): BelongsTo
     {
         return $this->belongsTo(
-                   Marca::class,
-                'idMarca',
-                'idMarca'
+            Marca::class,
+            'idMarca',
+            'idMarca'
         );
     }
 
-    public function getCategoria() : BelongsTo
+    public function getCategoria(): BelongsTo
     {
         return $this->belongsTo(
-                    Categoria::class,
-                    'idCategoria',
-                    'idCategoria'
+            Categoria::class,
+            'idCategoria',
+            'idCategoria'
         );
     }
-
-
 }
