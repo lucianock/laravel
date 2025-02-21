@@ -16,12 +16,17 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
-
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('marcas')" :active="request()->routeIs('marcas')">
                         Marcas
                     </x-nav-link>
                 </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('productos')" :active="request()->routeIs('productos')">
+                        Productos
+                    </x-nav-link>
+                </div>
+
             </div>
 
             <!-- Settings Dropdown -->
@@ -85,10 +90,14 @@
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
         </div>
-
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('marcas')" :active="request()->routeIs('marcas')">
                 Marcas
+            </x-responsive-nav-link>
+        </div>
+        <div class="pt-2 pb-3 space-y-1">
+            <x-responsive-nav-link :href="route('productos')" :active="request()->routeIs('productos')">
+                Productos
             </x-responsive-nav-link>
         </div>
 
