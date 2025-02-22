@@ -4,21 +4,27 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Producto extends Model
 {
     use HasFactory;
     protected $primaryKey = 'idProducto';
     public $timestamps = false;
-    protected $fillable = [
-        'prdNombre',
-        'prdPrecio',
-        'idMarca',
-        'idCategoria',
-        'prdDescripcion',
-        'prdImagen'
-    ];
-    public function getMarca()
+
+    /**
+     * Chequear si hay productos relacionados a una marca
+     */
+    static function checkProductoPorMarca(string $idMarca): int
+    {
+        //$chech = Producto::where('idMarca', $idMarca)->first();
+        //$chech = Producto::firstWhere('idMarca', $idMarca);
+        $check = Producto::where('idMarca', $idMarca)->count();
+        return $check;
+    }
+
+    /*### métodos de relacion  ###*/
+    public function getMarca(): BelongsTo
     {
         return $this->belongsTo(
             Marca::class,
@@ -26,7 +32,8 @@ class Producto extends Model
             'idMarca'
         );
     }
-    public function getCate()
+
+    public function getCategoria(): BelongsTo
     {
         return $this->belongsTo(
             Categoria::class,

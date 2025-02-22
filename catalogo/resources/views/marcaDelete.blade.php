@@ -1,22 +1,39 @@
 @extends('layouts.plantilla')
 @section('contenido')
 
-    <h1>Baja de una marca</h1>
+    <h1>Eliminación de una marca</h1>
 
-    <div class="alert alert-danger p-4 col-6 mx-auto shadow ">
-        Se eliminará la marca: <span class="fs-4 sep">{{ $marca->mkNombre }}</span>
-        <form action="/marca/destroy" method="post">
+    <div class="alert p-4 col-8 mx-auto shadow">
+        <form action="/marca/delete" method="post">
         @csrf
         @method('delete')
+            <div class="form-group">
+                <label for="mkNombre">Nombre de la Marca</label>
+                <input type="text" name="mkNombre"
+                       value="{{ $marca->mkNombre }}"
+                       class="form-control" id="mkNombre" readonly>
+            </div>
             <input type="hidden" name="idMarca"
                    value="{{ $marca->idMarca }}">
-            <input type="hidden" name="mkNombre"
-                   value="{{ $marca->mkNombre }}">
-            <button class="btn btn-danger my-3 px-4">Confirmar baja</button>
+
+            <button class="btn btn-danger my-3 px-5">Eliminar marca</button>
             <a href="/marcas" class="btn btn-outline-secondary sep">
                 Volver a panel de marcas
             </a>
         </form>
     </div>
+
+    @if( $errors->any() )
+        <div class="alert alert-danger p-4 col-8 mx-auto">
+            <ul>
+                @foreach( $errors->all() as $error )
+                    <li>
+                        <i class="bi bi-exclamation-triangle"></i>
+                        {{ $error }}
+                    </li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
 
 @endsection

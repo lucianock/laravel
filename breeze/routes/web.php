@@ -24,7 +24,10 @@ Route::get('/marca/edit/{marca}', [MarcaController::class, 'edit'])
     ->middleware('auth');
 Route::put('/marca/update/{marca}', [MarcaController::class, 'update'])
     ->middleware('auth');
-Route::get('/marca/delete/{marca}', [MarcaController::class, 'destroy'])
+
+Route::get('/marca/delete/{id}', [ MarcaController::class, 'delete' ])
+    ->middleware('auth');
+Route::delete('/marca/destroy/{marca}', [ MarcaController::class, 'destroy' ])
     ->middleware('auth');
 
 
