@@ -33,7 +33,7 @@ class Producto extends Model
         );
     }
 
-    public function getCategoria(): BelongsTo
+    public function getCate(): BelongsTo
     {
         return $this->belongsTo(
             Categoria::class,

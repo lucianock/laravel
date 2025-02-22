@@ -20,7 +20,7 @@ class ProductoController extends Controller
         /*
         * $productos = Producto::join('marcas', 'productos.idMarca', '=', 'marcas.idMarca')->paginate(5);
         * */
-        $productos = Producto::with([ 'getMarca', 'getCategoria' ])->paginate(5);
+        $productos = Producto::with([ 'getMarca', 'getCate' ])->paginate(5);
 
         return view('productos', [ 'productos'=>$productos ]);
     }
