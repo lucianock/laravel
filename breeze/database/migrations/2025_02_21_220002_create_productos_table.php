@@ -22,12 +22,12 @@ return new class extends Migration
             $table->boolean('prdActivo')->default(1);
 
             $table->foreign('idMarca')
-                ->references('idMarca')
-                ->on('marcas');
+                    ->references('idMarca')
+                    ->on('marcas');
 
             $table->foreign('idCategoria')
-                ->references('idCategoria')
-                ->on('categorias');
+                    ->references('idCategoria')
+                    ->on('categorias');
         });
     }
 

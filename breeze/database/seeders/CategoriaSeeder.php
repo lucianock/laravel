@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\Categoria;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class CategoriaSeeder extends Seeder
@@ -21,7 +20,7 @@ class CategoriaSeeder extends Seeder
                 ['catNombre' => 'Parlantes bluetooth'],
                 ['catNombre' => 'Smart TV'],
                 ['catNombre' => 'Consolas'],
-                ['catNombre' => 'Tablets']
+                ['catNombre' => 'Tablets'],
             ]
         );
     }
