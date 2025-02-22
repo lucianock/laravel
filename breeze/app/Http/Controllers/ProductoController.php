@@ -139,9 +139,18 @@ class ProductoController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Producto $producto)
+    public function edit(Producto $producto) : View
     {
-        //
+        //Obtenemos listados de marcas y de categorías
+        $marcas = Marca::all();
+        $categorias = Categoria::all();
+        return view('productoEdit',
+                    [
+                        'producto' => $producto,
+                        'marcas' => $marcas,
+                        'categorias' => $categorias
+                    ]
+                );
     }
 
     /**
@@ -149,7 +158,39 @@ class ProductoController extends Controller
      */
     public function update(Request $request, Producto $producto)
     {
-        //
+    
+        //validación
+        $this->validarForm($request, $producto->idProducto);
+        $prdNombre = $request->prdNombre;
+        //subida de archivo *
+        $prdImagen = $this->subirImagen( $request );
+        try {
+            //Asignamos atributos
+            $producto->prdNombre = $prdNombre;
+            $producto->prdPrecio = $request->prdPrecio;
+            $producto->idMarca = $request->idMarca;
+            $producto->idCategoria = $request->idCategoria;
+            $producto->prdDescripcion = $request->prdDescripcion;
+            $producto->prdImagen = $prdImagen;
+            //Almacenamos en tabla productos
+            $producto->save();
+            return redirect('/productos')
+                ->with(
+                    [
+                        'mensaje'=>'Producto: '.$prdNombre.' modificado correctamente',
+                        'css'=>'success'
+                    ]
+                );
+        }catch ( \Throwable $th ){
+            //log  $th->getMessage()
+            return redirect('/productos')
+                ->with(
+                    [
+                        'mensaje'=>'No se pudo modificar el producto: '.$prdNombre.'.',
+                        'css'=>'danger'
+                    ]
+                );
+        }
     }
 
     /**

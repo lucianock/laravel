@@ -39,6 +39,11 @@ Route::get('/producto/create', [ProductoController::class, 'create'])
     ->middleware('auth');
 Route::post('/producto/store', [ProductoController::class, 'store'])
     ->middleware('auth');
+Route::get('/producto/edit/{producto}', [ProductoController::class, 'edit'])
+    ->middleware('auth');
+Route::put('/producto/update/{producto}', [ProductoController::class, 'update'])
+    ->middleware('auth');
+
 
 
 Route::middleware('auth')->group(function () {
