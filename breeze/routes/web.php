@@ -44,6 +44,11 @@ Route::get('/producto/edit/{producto}', [ProductoController::class, 'edit'])
 Route::put('/producto/update/{producto}', [ProductoController::class, 'update'])
     ->middleware('auth');
 
+Route::get('/producto/delete/{id}', [ ProductoController::class, 'delete' ])
+    ->middleware('auth');
+Route::delete('/producto/destroy/{producto}', [ ProductoController::class, 'destroy' ])
+    ->middleware('auth');
+
 
 
 Route::middleware('auth')->group(function () {

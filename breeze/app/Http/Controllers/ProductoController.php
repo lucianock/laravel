@@ -196,8 +196,38 @@ class ProductoController extends Controller
     /**
      * Remove the specified resource from storage.
      */
+    public function delete(string $id): RedirectResponse | View
+    {
+        //obtenemos datos de un producto por su id
+        $producto = Producto::find($id);
+        // retornamos vista de confirmación de baja
+        return view('productoDelete', ['producto' => $producto]);
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
     public function destroy(Producto $producto)
     {
-        //
+        $prdNombre = $producto->prdNombre;
+        try {
+            $producto->delete();
+            return redirect('/productos')
+                ->with(
+                    [
+                        'mensaje'=>'Producto: '.$prdNombre.' eliminado correctamente',
+                        'css'=>'success'
+                    ]
+                );
+        }catch ( \Throwable $th ){
+            //log  $th->getMessage()
+            return redirect('/productos')
+                ->with(
+                    [
+                        'mensaje'=>'No se pudo eliminar el producto: '.$prdNombre.'.',
+                        'css'=>'danger'
+                    ]
+                );
+        }
     }
 }

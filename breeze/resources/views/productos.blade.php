@@ -83,7 +83,7 @@
                                             </svg>
                                             Modificar
                                         </a>
-                                        <a href=""
+                                        <a href="/producto/delete/{{ $producto->idProducto }}"
                                             class="text-gray-700 dark:text-gray-400 hover:underline py-3 flex">
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                                 stroke-width="1.5" stroke="currentColor"
