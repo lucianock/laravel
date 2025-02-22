@@ -1,5 +1,6 @@
+
+/breeze
 /catalogo
-../catalogo
 /.phpunit.cache
 /node_modules
 /public/build
