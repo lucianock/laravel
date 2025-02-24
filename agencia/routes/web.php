@@ -19,7 +19,7 @@ Route::post('/proceso', function () {
     return view('proceso', ['nombre' => $nombre, 'apellido' => 'Perez']);
 });
 
-Route::view('/inicio', 'inicio');
+Route::view('/', 'inicio');
 
 Route::get('/lista-regiones', function () {
     $regiones = DB::table('regiones')->get();
