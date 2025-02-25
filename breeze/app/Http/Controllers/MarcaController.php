@@ -95,28 +95,24 @@ class MarcaController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request): RedirectResponse
+    public function update(Request $request, Marca $marca): RedirectResponse
     {
         $mkNombre = $request->mkNombre;
         $this->validarForm($request);
         try {
-            //obtenemos datos de una marca por su id
-            $marca = Marca::find($request->idMarca);
-            //reasignamos valores de atributos
+            // Asignar valores al modelo de Marca que se obtuvo automáticamente por la ruta
             $marca->mkNombre = $mkNombre;
-            // almacenar en tabla de marcas
             $marca->save();
-            return  redirect('/marcas')
-                ->with([
-                    'mensaje' => 'Marca: ' . $mkNombre . ' agregada correctamente.',
-                    'css' => 'success'
-                ]);
+
+            return redirect('/marcas')->with([
+                'mensaje' => 'Marca: ' . $mkNombre . ' modificada correctamente.',
+                'css' => 'success'
+            ]);
         } catch (Throwable $th) {
-            return  redirect('/marcas')
-                ->with([
-                    'mensaje' => 'No se pudo modificar la marca: ' . $mkNombre . '.',
-                    'css' => 'danger'
-                ]);
+            return redirect('/marcas')->with([
+                'mensaje' => 'No se pudo modificar la marca: ' . $mkNombre . '.',
+                'css' => 'danger'
+            ]);
         }
     }
 

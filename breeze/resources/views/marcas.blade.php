@@ -19,7 +19,7 @@
                                 {{-- <th class="py-1 px-3 text-left w1/6">id</th> --}}
                                 <th class="py-1 px-3 text-left w4/6">Marca</th>
                                 <th class="py-1 px-3 text-right w1/6">
-                                    <a href="/marca/create"
+                                    <a href="./marca/create"
                                         class="inline-flex items-center px-1 py-1 px-3 border-2 rounded-md border-green-400 dark:border-green-600 text-sm font-medium leading-5 text-gray-900 dark:text-green-400 hover:bg-green-900 focus:outline-none focus:border-green-700 transition duration-150 ease-in-out">agregar</a>
                                 </th>
                             </tr>
