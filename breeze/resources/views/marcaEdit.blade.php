@@ -13,7 +13,7 @@
                     <h1 class="pb-4 text-gray-300">Modificación de una marca</h1>
                     <!-- formulario -->
                     <div class="shadow-md rounded-md max-w-3xl mb-72">
-                        <form action="/marca/update/{{ $marca->idMarca }}" method="post">
+                        <form action="{{ route('marca.update', $marca->idMarca) }}" method="post">
                             @method('put')
                             @csrf
                             <div class="p-6">

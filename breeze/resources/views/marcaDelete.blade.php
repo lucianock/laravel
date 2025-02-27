@@ -13,7 +13,7 @@
                     <h1 class="pb-4 text-gray-300">Eliminación de una marca</h1>
                     <!-- formulario -->
                     <div class="shadow-md rounded-md max-w-3xl mb-72">
-                        <form action="/marca/destroy/{{ $marca->idMarca }}" method="post">
+                        <form action="{{ route('marca.destroy', $marca->idMarca) }}" method="post">
                             @csrf
                             @method('DELETE')
                             <div class="p-6">
