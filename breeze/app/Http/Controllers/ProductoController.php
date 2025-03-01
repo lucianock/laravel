@@ -109,7 +109,7 @@ class ProductoController extends Controller
             $producto->prdImagen = $prdImagen;
             //Almacenamos en tabla productos
             $producto->save();
-            return redirect('/productos')
+            return redirect()->route('productos')
                 ->with(
                     [
                         'mensaje'=>'Producto: '.$prdNombre.' agregado correctamente',
@@ -118,7 +118,7 @@ class ProductoController extends Controller
                 );
         }catch ( \Throwable $th ){
             //log  $th->getMessage()
-            return redirect('/productos')
+            return redirect()->route('productos')
                 ->with(
                     [
                         'mensaje'=>'No se pudo agregar el producto: '.$prdNombre.'.',
@@ -174,7 +174,7 @@ class ProductoController extends Controller
             $producto->prdImagen = $prdImagen;
             //Almacenamos en tabla productos
             $producto->save();
-            return redirect('/productos')
+            return redirect()->route('productos')
                 ->with(
                     [
                         'mensaje'=>'Producto: '.$prdNombre.' modificado correctamente',
@@ -183,7 +183,7 @@ class ProductoController extends Controller
                 );
         }catch ( \Throwable $th ){
             //log  $th->getMessage()
-            return redirect('/productos')
+            return redirect()->route('productos')
                 ->with(
                     [
                         'mensaje'=>'No se pudo modificar el producto: '.$prdNombre.'.',
@@ -212,7 +212,7 @@ class ProductoController extends Controller
         $prdNombre = $producto->prdNombre;
         try {
             $producto->delete();
-            return redirect('/productos')
+            return redirect()->route('productos')
                 ->with(
                     [
                         'mensaje'=>'Producto: '.$prdNombre.' eliminado correctamente',
@@ -221,7 +221,7 @@ class ProductoController extends Controller
                 );
         }catch ( \Throwable $th ){
             //log  $th->getMessage()
-            return redirect('/productos')
+            return redirect()->route('productos')
                 ->with(
                     [
                         'mensaje'=>'No se pudo eliminar el producto: '.$prdNombre.'.',

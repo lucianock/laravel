@@ -57,13 +57,13 @@ class MarcaController extends Controller
             $marca->mkNombre = $mkNombre;
             //almacenamos en la tabla marcas
             $marca->save();
-            return  redirect('/marcas')
+            return redirect(route("marcas"))
                 ->with([
                     'mensaje' => 'Marca: ' . $mkNombre . ' agregada correctamente.',
                     'css' => 'success'
                 ]);
         } catch (Throwable $th) {
-            return  redirect('/marcas')
+            return redirect(route("marcas"))
                 ->with([
                     'mensaje' => 'No se pudo agregar la marca: ' . $mkNombre . '.',
                     'css' => 'danger'
@@ -104,12 +104,12 @@ class MarcaController extends Controller
             $marca->mkNombre = $mkNombre;
             $marca->save();
 
-            return redirect('/marcas')->with([
+            return redirect(route("marcas"))->with([
                 'mensaje' => 'Marca: ' . $mkNombre . ' modificada correctamente.',
                 'css' => 'success'
             ]);
         } catch (Throwable $th) {
-            return redirect('/marcas')->with([
+            return redirect(route("marcas"))->with([
                 'mensaje' => 'No se pudo modificar la marca: ' . $mkNombre . '.',
                 'css' => 'danger'
             ]);
@@ -122,7 +122,7 @@ class MarcaController extends Controller
         $marca = Marca::find($id);
         ### si hay productos relacionados a esa marca
         if (Producto::checkProductoPorMarca($id)) {
-            return  redirect('/marcas')
+            return  redirect(route("marcas"))
                 ->with([
                     'mensaje' => 'No se puede eliminar la marca: ' . $marca->mkNombre . ' porque tiene productos relacionados.',
                     'css' => 'warning'
@@ -148,14 +148,14 @@ class MarcaController extends Controller
             $marca->delete();
 
             // Redirigir con un mensaje de éxito
-            return redirect('/marcas')
+            return redirect(route("marcas"))
                 ->with([
                     'mensaje' => 'La marca "' . $mkNombre . '" fue eliminada correctamente.',
                     'css' => 'success'
                 ]);
         } catch (\Throwable $th) {
             // Si ocurre un error, redirigir con mensaje de advertencia
-            return redirect('/marcas')
+            return redirect(route("marcas"))
                 ->with([
                     'mensaje' => 'No se pudo eliminar la marca.',
                     'css' => 'warning'

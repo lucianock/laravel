@@ -6,10 +6,11 @@
                 <img src="/imagenes/m-iso.jpg" id="m-logo" alt="logo">
             </a>
             <ul class="nav mb-1">
-                <li><a href="marcas" class="nav-link px-3 text-white a-menu mx-2">Marcas</a></li>
-                <li><a href="categorias" class="nav-link px-3 text-white a-menu mx-2">Categorías</a></li>
-                <li><a href="productos" class="nav-link px-3 text-white a-menu mx-2">Productos</a></li>
+                <li><a href="{{ route('marcas') }}" class="nav-link px-3 text-white a-menu mx-2">Marcas</a></li>
+                <li><a href="{{ route('categorias') }}" class="nav-link px-3 text-white a-menu mx-2">Categorías</a></li>
+                <li><a href="{{ route('productos') }}" class="nav-link px-3 text-white a-menu mx-2">Productos</a></li>
             </ul>
+        </div>
     </div>
 </header>
 <!-- header -->

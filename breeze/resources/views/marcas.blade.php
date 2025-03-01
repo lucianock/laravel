@@ -31,9 +31,9 @@
                                     <td class="py-2 px-3 text-xl">{{ $marca->mkNombre }}</td>
                                     <td class="text-right py-2 px-3">
                                         <a class="inline-flex items-center px-1 py-1 px-3 border-2 rounded-md border-green-400 dark:border-green-600 text-sm font-medium leading-5 text-gray-900 dark:text-green-400 hover:bg-green-900 focus:outline-none focus:border-green-700 transition duration-150 ease-in-out"
-                                            href="{{ url('/marca/edit/' . $marca->idMarca) }}">Modificar</a>
+                                            href="{{ route('marca.edit', $marca->idMarca) }}">Modificar</a>
                                         <a class="inline-flex items-center px-1 py-1 px-3 border-2 rounded-md border-green-400 dark:border-green-600 text-sm font-medium leading-5 text-gray-900 dark:text-green-400 hover:bg-green-900 focus:outline-none focus:border-green-700 transition duration-150 ease-in-out"
-                                            href="{{ url('/marca/delete/' . $marca->idMarca) }}">Eliminar</a>
+                                            href="{{ route('marca.delete', $marca->idMarca) }}">Eliminar</a>
                                         {{-- <x-botones href="{{ url('/marca/delete/' . $marca->idMarca) }}">Eliminar</x-botones> --}}
                                     </td>
                                 </tr>

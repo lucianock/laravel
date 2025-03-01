@@ -35,7 +35,7 @@
                                         border border-red-500 rounded
                                         ">Eliminar
                                         marca</button>
-                                    <a href="/marcas"
+                                    <a href="{{ route('marcas') }}"
                                         class="text-gray-400 hover:text-green-300
                                         bg-gray-900 hover:bg-gray-800 px-5 py-1
                                         border border-gray-500 rounded

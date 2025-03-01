@@ -37,7 +37,7 @@
                                     Precio
                                 </th>
                                 <th class="p-4">
-                                    <a href="/producto/create"
+                                    <a href="{{ route('producto.create') }}"
                                         class="text-gray-700 dark:text-gray-400 hover:underline flex">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                             stroke-width="1.5" stroke="currentColor" class="w-6 h-6 mr-2">
@@ -54,7 +54,7 @@
                             @foreach ($productos as $producto)
                                 <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
                                     <td class="p-4 text-gray-700 dark:text-gray-400">
-                                        <img src="/imgs/{{ $producto->prdImagen }}">
+                                        <img src="{{ asset('imgs/' . $producto->prdImagen) }}">
                                     </td>
                                     <th scope="row"
                                         class="py-4 px-6 text-sm font-medium text-gray-900 dark:text-white">
@@ -73,7 +73,7 @@
                                         </span>
                                     </td>
                                     <td class="py-4 px-6 text-sm font-medium text-right ">
-                                        <a href="/producto/edit/{{ $producto->idProducto }}"
+                                        <a href="{{ route('producto.edit', $producto->idProducto) }}"
                                             class="text-gray-700 dark:text-gray-400 hover:underline py-3 flex">
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                                 stroke-width="1.5" stroke="currentColor"
@@ -83,7 +83,7 @@
                                             </svg>
                                             Modificar
                                         </a>
-                                        <a href="/producto/delete/{{ $producto->idProducto }}"
+                                        <a href="{{ route('producto.delete', $producto->idProducto) }}"
                                             class="text-gray-700 dark:text-gray-400 hover:underline py-3 flex">
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                                 stroke-width="1.5" stroke="currentColor"
