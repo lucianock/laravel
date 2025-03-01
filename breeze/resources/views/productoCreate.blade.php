@@ -13,7 +13,7 @@
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <h1 class="pb-4 text-gray-300">Alta de un Producto</h1>
 
-                    <form action="/producto/store" method="post" enctype="multipart/form-data">
+                    <form action="{{url ('producto/store')}}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="relative z-0 w-full mb-6 group">
                             <input type="text" name="prdNombre" id="prdNombre"

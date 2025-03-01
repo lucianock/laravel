@@ -11,7 +11,7 @@
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <h1 class="pb-4 text-gray-300">Editar Producto</h1>
 
-                    <form action="/producto/update/{{ $producto->idProducto }}" method="post"
+                    <form action="{{ route('producto.update', $producto->idProducto) }}" method="post"
                         enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
