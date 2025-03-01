@@ -22,14 +22,13 @@ Route::post('/marca/store', [MarcaController::class, 'store'])
     ->middleware('auth');
 Route::get('/marca/edit/{marca}', [MarcaController::class, 'edit'])
     ->middleware('auth');
-Route::put('/marca/update/{idMarca}', [MarcaController::class, 'update'])
+Route::put('/marca/update/{marca}', [MarcaController::class, 'update'])
     ->name('marca.update');
-
-Route::get('/marca/delete/{idMarca}', [MarcaController::class, 'delete'])
+Route::get('/marca/delete/{marca}', [MarcaController::class, 'delete'])
     ->name('marca.delete');
+Route::delete('/marca/{marca}', [MarcaController::class, 'destroy'])
+    ->name('marca.destroy');
 
-Route::delete('/marca/destroy/{marca}', [MarcaController::class, 'destroy'])
-    ->middleware('auth');
 
 
 
